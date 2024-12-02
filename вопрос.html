@@ -1,0 +1,86 @@
+
+<html>
+<head>
+    <title>Онлайн-вопрос</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-size: 100%;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .form-container {
+            width: 70%; 
+            max-width: 400px; 
+            padding: 20px; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+        .form-group {
+            margin-bottom: 15px; 
+        }
+        label {
+            display: block;
+            margin-bottom: 5px; 
+        }
+        input, textarea {
+            width: 100%; 
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%; 
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body background="pp1.jpg">
+
+    <div class="form-container">
+        <h1>Задайте свой вопрос</h1>
+        <form id="questionForm">
+            <div class="form-group">
+                <label for="firstName">Имя:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7(000)000-28-05" pattern="\+7\(\d{3}\)\d{3}-\d{2}-\d{2}" required>
+            </div>
+            <div class="form-group">
+                <label for="question">Ваш вопрос:</label>
+                <textarea id="question" name="question" rows="4" required></textarea>
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('questionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phone = document.getElementById('phone').value;
+            const question = document.getElementById('question').value;
+            alert(`Спасибо, ${firstName} ${lastName}! Ваш вопрос: "${question}" был отправлен. Номер телефона: ${phone}`);
+        });
+    </script>
+
+</body>
+</html>
